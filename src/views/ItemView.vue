@@ -1,9 +1,58 @@
 <template>
-  <div>item</div>
+  <div>
+    <section>
+      <!-- 질문 상세 정보 -->
+      <div class="user-container">
+        <div>
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="user-decription">
+          <RouterLink :to="`/user/${fetchedItem.user}`">
+            {{ fetchedItem.user }}
+          </RouterLink>
+          <div class="time">
+            {{ fetchedItem.time_ago }}
+          </div>
+        </div>
+      </div>
+      <h2>
+        {{ fetchedItem.title }}
+      </h2>
+    </section>
+    <section>
+      <!-- 질문 댓글 -->
+      <div v-dompurify-html="fetchedItem.content"></div>
+    </section>
+  </div>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters(['fetchedItem']),
+  },
+  created() {
+    const itemId = this.$route.params.id;
+    this.$store.dispatch('FETCH_ITEM', itemId);
+  },
+};
 </script>
 
-<style></style>
+<style scoped>
+.user-container {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+.fa-user {
+  font-size: 2.5rem;
+}
+.user-decription {
+  padding-left: 8px;
+}
+.time {
+  font-size: 0.7rem;
+}
+</style>
