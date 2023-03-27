@@ -5,11 +5,11 @@
 </template>
 
 <script>
+import ListMixin from '@/mixins/ListMixin';
 import ListItem from '../components/ListItem.vue';
+
 export default {
-  created() {
-    this.$store.dispatch('FETCH_JOBS');
-  },
+  mixins: [ListMixin],
   components: {
     ListItem,
   },

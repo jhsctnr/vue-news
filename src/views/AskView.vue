@@ -5,13 +5,12 @@
 </template>
 
 <script>
+import ListMixin from '@/mixins/ListMixin';
 import ListItem from '../components/ListItem.vue';
 // import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  created() {
-    this.$store.dispatch('FETCH_ASK');
-  },
+  mixins: [ListMixin],
   components: {
     ListItem,
   },
