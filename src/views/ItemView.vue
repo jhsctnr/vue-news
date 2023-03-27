@@ -1,20 +1,15 @@
 <template>
   <div>
     <section>
-      <!-- 질문 상세 정보 -->
-      <div class="user-container">
-        <div>
-          <i class="fa-solid fa-user"></i>
-        </div>
-        <div class="user-decription">
-          <RouterLink :to="`/user/${fetchedItem.user}`">
-            {{ fetchedItem.user }}
-          </RouterLink>
-          <div class="time">
-            {{ fetchedItem.time_ago }}
-          </div>
-        </div>
-      </div>
+      <!-- 사용자 상세 정보 -->
+      <UserProfile :info="fetchedItem">
+        <RouterLink slot="username" :to="`/user/${fetchedItem.user}`">
+          {{ fetchedItem.user }}
+        </RouterLink>
+        <span slot="time">{{ 'Posted ' + fetchedItem.time_ago }}</span>
+      </UserProfile>
+    </section>
+    <section>
       <h2>
         {{ fetchedItem.title }}
       </h2>
@@ -27,6 +22,7 @@
 </template>
 
 <script>
+import UserProfile from '../components/UserProfile.vue';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -36,6 +32,9 @@ export default {
   created() {
     const itemId = this.$route.params.id;
     this.$store.dispatch('FETCH_ITEM', itemId);
+  },
+  components: {
+    UserProfile,
   },
 };
 </script>
