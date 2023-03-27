@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ListMixin from '@/mixins/ListMixin';
+import ListMixin from '../mixins/ListMixin.js';
 import ListItem from '../components/ListItem.vue';
 
 export default {

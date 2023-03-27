@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import ListMixin from '@/mixins/ListMixin';
 import ListItem from '../components/ListItem.vue';
+import ListMixin from '../mixins/ListMixin.js';
 // import { mapActions, mapGetters } from 'vuex';
 
 export default {

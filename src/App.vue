@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <ToolBar />
-    <transition name="page">
+    <transition name="page" mode="out-in">
       <RouterView />
     </transition>
     <LoadSpinner :loading="loadingStatus" />
@@ -62,7 +62,7 @@ a.router-link-exact-active {
 /* Router Transition */
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0s ease;
 }
 
 .page-enter-from,

@@ -6,19 +6,59 @@ const config = {
 };
 
 // 2. API 함수들을 정리
-const fetchList = (pageName) =>
-  axios.get(`${config.baseUrl}${pageName}/1.json`);
+const fetchList = async (pageName) => {
+  try {
+    const response = await axios.get(`${config.baseUrl}${pageName}/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-const fetchNewsList = () => axios.get(`${config.baseUrl}news/1.json`);
+const fetchNewsList = async () => {
+  try {
+    const response = await axios.get(`${config.baseUrl}news/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-const fetchAskList = () => axios.get(`${config.baseUrl}ask/1.json`);
+const fetchAskList = async () => {
+  try {
+    const response = await axios.get(`${config.baseUrl}ask/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-const fetchJobsList = () => axios.get(`${config.baseUrl}jobs/1.json`);
+const fetchJobsList = async () => {
+  try {
+    const response = await axios.get(`${config.baseUrl}jobs/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-const fetchUserInfo = (userName) =>
-  axios.get(`${config.baseUrl}user/${userName}.json`);
+const fetchUserInfo = async (userName) => {
+  try {
+    const response = await axios.get(`${config.baseUrl}user/${userName}.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-const fetchCommentItem = (id) => axios.get(`${config.baseUrl}item/${id}.json`);
+const fetchCommentItem = async (id) => {
+  try {
+    const response = await axios.get(`${config.baseUrl}item/${id}.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export {
   fetchList,
